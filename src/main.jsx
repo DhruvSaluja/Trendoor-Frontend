@@ -7,10 +7,10 @@ import { HashRouter,BrowserRouter } from 'react-router-dom'
 import Shopcontextprovider from './context/Shopcontext.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <HashRouter>
+  <BrowserRouter>
   <Shopcontextprovider>
 
     <App />
   </Shopcontextprovider>
-  </HashRouter>,
+  </BrowserRouter>,
 )

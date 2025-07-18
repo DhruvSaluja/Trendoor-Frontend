@@ -10,6 +10,7 @@ const Login = () => {
   const [email,setemail]=useState('')
   const [password,setpassword]=useState('')
   const onsubmithandler=async(event)=>{
+    event.preventDefault()
     try {
       if(currentstate === 'Sign up'){
          const response= await axios.post(backendurl + '/api/user/register',{name,email,password})
@@ -21,6 +22,7 @@ const Login = () => {
          }
       }else{
          const response= await axios.post(backendurl + '/api/user/login',{email,password})
+      
          if(response.data.success){
           settoken(response.data.token)
           localStorage.setItem('token',response.data.token)
@@ -30,9 +32,9 @@ const Login = () => {
       }
       
     } catch (error) {
-      
+      console.log(error)
     }
-    event.preventDefault()
+    
   }
    useEffect(()=>{
     if(token){

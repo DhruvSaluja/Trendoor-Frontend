@@ -13,7 +13,7 @@ import {Outlet} from 'react-router-dom'
 
 export const backendurl = import.meta.env.VITE_BACKEND_URL
 export const currency="₹"
-console.log(backendurl)
+
 const Admin = () => {
   const [token ,settoken]=useState(localStorage.getItem('token')?localStorage.getItem('token'):'')
   useEffect(()=>{

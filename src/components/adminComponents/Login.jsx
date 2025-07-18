@@ -10,6 +10,7 @@ const Login = ({settoken}) => {
         try {
             e.preventDefault()
         const response=await axios.post(backendurl +'/api/user/admin',{email,password})
+        console.log(response)
         if(response.data.success){
             settoken(response.data.token)
         }
@@ -25,7 +26,7 @@ const Login = ({settoken}) => {
     <div className='min-h-screen flex items-center justify-center w-full'>
         <div className='bg-white shadow-md rounded-lg px-8 py-6 max-w-md'>
             <h1 className='text-2xl font-bold mb-4 '>Admin Pannel</h1>
-            <form onSubmit={onsubmithandler}>
+            <form onSubmit={(e)=>onsubmithandler(e)}>
                 <div className='mb-3 min-w-72'>
                     <p className='text-sm font-medium text-gray-700 mb-2'>Email Address</p>
                     <input onChange={(e)=>setemail(e.target.value)} value={email} className='rounded-md px-3 py-2 w-full border border-gray-300' type="email" placeholder='your@email.com' required />
